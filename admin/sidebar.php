@@ -27,14 +27,14 @@ $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
           </div>
         </li>
         <li class="menu-header">Admin Menü</li>
-        <li><a class="nav-link" href="index.php"><i class="fas fa-home"></i><span>Admin Paneli Anasayfa</span></a></li>
+        <li><a class="nav-link" href="index.php"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
         <?php if($kullanicicek['kullanici_yetki']<=1) { ?>
-          <li><a class="nav-link" href="cari.php"><i class="fas fa-chart-bar"></i><span>Cari Ekranı</span></a></li>
-          <li><a class="nav-link" href="stok.php"><i class="fas fa-warehouse"></i><span>Stok-Malzeme Ekranı</span></a></li>
-          <li><a class="nav-link" href="alis.php"><i class="fas fa-shopping-basket"></i><span>Alış Ekranı</span></a></li>
+          <li><a class="nav-link" href="cari.php"><i class="fas fa-chart-bar"></i><span>Cari</span></a></li>
+          <li><a class="nav-link" href="stok.php"><i class="fas fa-warehouse"></i><span>Stok-Malzeme</span></a></li>
+          <li><a class="nav-link" href="alis.php"><i class="fas fa-shopping-basket"></i><span>Alış</span></a></li>
           <li><a class="nav-link" href="urun.php"><i class="fab fa-product-hunt"></i><span>Üretilmiş Ürün</span></a></li>
-          <li><a class="nav-link" href="teklif.php"><i class="fas fa-hand-holding-usd"></i><span>Teklif Ekranı</span></a></li>
-          <li><a class="nav-link" href="siparis.php"><i class="fas fa-shopping-cart"></i><span>Sipariş Ekranı</span></a></li>
+          <li><a class="nav-link" href="teklif.php"><i class="fas fa-hand-holding-usd"></i><span>Teklif</span></a></li>
+          <li><a class="nav-link" href="siparis.php"><i class="fas fa-shopping-cart"></i><span>Sipariş</span></a></li>
           <?php if ($kullanicicek['kullanici_yetki']==0) { ?>
             <li><a class="nav-link" href="kullanicilar.php"><i class="fas fa-user"></i><span>Kullanıcı Ayarları</span></a></li>
           <?php } ?>

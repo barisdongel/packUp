@@ -1,8 +1,6 @@
 <?php
-ob_start();
-session_start();
 include '../baglan.php';
-include 'function.php';
+include '../function.php';
 
 $kullanicisor =$db->prepare("SELECT * FROM kullanici_tbl WHERE kullanici_ad=:ad");
 $kullanicisor->execute(array(
@@ -21,7 +19,7 @@ if (!isset($_SESSION['kullanici_ad'])) {
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Mata Stok-Sipariş Takip Paneli</title>
+  <title>packUp</title>
   <!-- General CSS Files -->
   <link rel="stylesheet" href="assets/css/app.min.css">
   <!-- Template CSS -->
