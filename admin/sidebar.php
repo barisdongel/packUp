@@ -35,6 +35,8 @@ $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
           <li><a class="nav-link" href="urun.php"><i class="fab fa-product-hunt"></i><span>Üretilmiş Ürün</span></a></li>
           <li><a class="nav-link" href="teklif.php"><i class="fas fa-hand-holding-usd"></i><span>Teklif</span></a></li>
           <li><a class="nav-link" href="siparis.php"><i class="fas fa-shopping-cart"></i><span>Sipariş</span></a></li>
+          <li><a class="nav-link" href="tanimlar.php"><i class="fas fa-heading"></i><span>Tanımlar</span></a></li>
+          <li><a class="nav-link" href="geneltanimlar.php"><i class="fas fa-heading"></i><span>Genel Tanımlar</span></a></li>
           <?php if ($kullanicicek['kullanici_yetki']==0) { ?>
             <li><a class="nav-link" href="kullanicilar.php"><i class="fas fa-user"></i><span>Kullanıcı Ayarları</span></a></li>
           <?php } ?>
