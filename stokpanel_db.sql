@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 20 Oca 2022, 20:37:42
+-- Üretim Zamanı: 18 Şub 2022, 11:33:47
 -- Sunucu sürümü: 10.4.21-MariaDB
 -- PHP Sürümü: 7.3.31
 
@@ -74,6 +74,27 @@ INSERT INTO `cariekrani_tbl` (`id`, `firma_ad`, `vergi_no`, `vergi_dairesi`, `ad
 -- --------------------------------------------------------
 
 --
+-- Tablo için tablo yapısı `geneltanim_tbl`
+--
+
+CREATE TABLE `geneltanim_tbl` (
+  `id` int(11) NOT NULL,
+  `iscilik_maaliyet` varchar(255) NOT NULL,
+  `diger_maaliyet` varchar(255) NOT NULL,
+  `tasarim_maaliyet` varchar(255) NOT NULL,
+  `baski_maaliyet` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Tablo döküm verisi `geneltanim_tbl`
+--
+
+INSERT INTO `geneltanim_tbl` (`id`, `iscilik_maaliyet`, `diger_maaliyet`, `tasarim_maaliyet`, `baski_maaliyet`) VALUES
+(0, '11', '1', '1', '11');
+
+-- --------------------------------------------------------
+
+--
 -- Tablo için tablo yapısı `kullanici_tbl`
 --
 
@@ -140,8 +161,9 @@ CREATE TABLE `siparis_tbl` (
 
 INSERT INTO `siparis_tbl` (`id`, `teklif_id`, `onay_durumu`) VALUES
 (10, 36, 0),
-(11, 37, 1),
-(12, 38, 0);
+(11, 37, 0),
+(12, 38, 1),
+(13, 39, 1);
 
 -- --------------------------------------------------------
 
@@ -167,6 +189,28 @@ CREATE TABLE `stokmalzeme_tbl` (
 INSERT INTO `stokmalzeme_tbl` (`id`, `urun_ad`, `urun_aciklama`, `urun_birim`, `urun_fiyat`, `urun_mevcutstok`, `urun_genelstok`, `urun_harcananstok`) VALUES
 (2, 'Deneme', 'Lorem Ipsum Dolar Sit Amme Lorem ipsum dolar sit amme Lorem Ipsum Dolar Sit Amme Lorem ipsum dolar sit ammeLorem Ipsum Dolar Sit Amme Lorem ipsum dolar sit ammeLorem Ipsum Dolar Sit Amme Lorem ipsum dolar sit ammeLorem Ipsum Dolar Sit Amme Lorem ipsum dol', 'Ton', '20000', 200, 200, 0),
 (3, 'Standart ürün', 'Standart ürün bilmem nesi', 'Ton', '20000', 200, 200, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `tanimlar_tbl`
+--
+
+CREATE TABLE `tanimlar_tbl` (
+  `id` int(11) NOT NULL,
+  `tanim_ad` varchar(255) NOT NULL,
+  `tanim_boyut` varchar(255) NOT NULL,
+  `tanim_adet` varchar(255) NOT NULL,
+  `tanim_kg` varchar(255) NOT NULL,
+  `tanim_tur` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Tablo döküm verisi `tanimlar_tbl`
+--
+
+INSERT INTO `tanimlar_tbl` (`id`, `tanim_ad`, `tanim_boyut`, `tanim_adet`, `tanim_kg`, `tanim_tur`) VALUES
+(1, 'Deneme Tanım', '1000', '1000', '100', 'lak');
 
 -- --------------------------------------------------------
 
@@ -197,7 +241,8 @@ CREATE TABLE `teklifekrani_tbl` (
 INSERT INTO `teklifekrani_tbl` (`id`, `teklif_firmaad`, `teklif_firmavergino`, `teklif_siparistarihi`, `teklif_satilabilirurunsecenekleri`, `teklif_urunadedi`, `teklif_kagitturu`, `teklif_baskitutari`, `teklif_lakvarmi`, `teklif_metalizevarmi`, `teklif_kirimvarmi`, `teklif_delikvarmi`, `teklif_iscisayisi`) VALUES
 (36, 'Deneme Düzenleme', '21321321', '2022-01-20', 'falan', '123', 'filan', '123', 1, 1, 1, 0, 10),
 (37, 'silinecek', '21321321', '2022-01-30', 'falan', '123', 'filan', '123', 0, 0, 0, 1, 10),
-(38, 'Deneme', '21321321', '0000-00-00', '', '', '', '', 0, 0, 0, 0, 0);
+(38, 'Deneme', '21321321', '0000-00-00', '', '', '', '', 1, 1, 0, 0, 0),
+(39, 'Barış', '21321321', '0000-00-00', '', '', '', '', 1, 1, 1, 1, 10);
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -240,6 +285,12 @@ ALTER TABLE `stokmalzeme_tbl`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `tanimlar_tbl`
+--
+ALTER TABLE `tanimlar_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `teklifekrani_tbl`
 --
 ALTER TABLE `teklifekrani_tbl`
@@ -277,7 +328,7 @@ ALTER TABLE `satilabilirurun_tbl`
 -- Tablo için AUTO_INCREMENT değeri `siparis_tbl`
 --
 ALTER TABLE `siparis_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `stokmalzeme_tbl`
@@ -286,10 +337,16 @@ ALTER TABLE `stokmalzeme_tbl`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- Tablo için AUTO_INCREMENT değeri `tanimlar_tbl`
+--
+ALTER TABLE `tanimlar_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- Tablo için AUTO_INCREMENT değeri `teklifekrani_tbl`
 --
 ALTER TABLE `teklifekrani_tbl`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
