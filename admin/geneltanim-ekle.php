@@ -25,6 +25,14 @@
             <label><i class="fa fa-file"></i> Diğer Maaliyetler</label>
             <input type="text" name="diger_maaliyet" class="form-control">
           </div>
+          <div class="form-group">
+            <label><i class="fas fa-question-circle"></i> Döviz Türü</label>
+            <select name="doviz_turu" class="form-control" id="doviz_turu">
+              <option value="USD">Dolar (USD)</option>
+              <option value="EUR">Euro (EUR)</option>
+              <option value="TRY">Türk Lirası (TRY)</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="col-md-12 text-right">

@@ -169,13 +169,15 @@ if (isset($_POST['cariekle'])) {
             iscilik_maaliyet=:iscilik,
             tasarim_maaliyet=:tasarim,
             baski_maaliyet=:baski,
-            diger_maaliyet=:diger
+            diger_maaliyet=:diger,
+            doviz_turu=:doviz
             ");
             $insert=$geneltanimkaydet->execute(array(
               'iscilik' => $_POST['iscilik_maaliyet'],
               'tasarim' => $_POST['tasarim_maaliyet'],
               'baski' => $_POST['baski_maaliyet'],
-              'diger' => $_POST['diger_maaliyet']
+              'diger' => $_POST['diger_maaliyet'],
+              'doviz' => $_POST['doviz_turu']
             ));
 
             if ($insert) {
@@ -197,14 +199,16 @@ if (isset($_POST['cariekle'])) {
               iscilik_maaliyet=:iscilik,
               tasarim_maaliyet=:tasarim,
               baski_maaliyet=:baski,
-              diger_maaliyet=:diger
+              diger_maaliyet=:diger,
+              doviz_turu=:doviz
               WHERE id={$_POST['id']}
               ");
               $update=$geneltanimduzenle->execute(array(
                 'iscilik' => $_POST['iscilik_maaliyet'],
                 'tasarim' => $_POST['tasarim_maaliyet'],
                 'baski' => $_POST['baski_maaliyet'],
-                'diger' => $_POST['diger_maaliyet']
+                'diger' => $_POST['diger_maaliyet'],
+                'doviz' => $_POST['doviz_turu']
               ));
 
               $id=$_POST['id'];
@@ -216,7 +220,7 @@ if (isset($_POST['cariekle'])) {
                 Header("Location:admin/geneltanimlar.php?durum=no");
               }
             }
-            
+
             //geneltanim silme
             if($_GET['geneltanimsil']=="ok") {
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 19 Şub 2022, 13:01:46
+-- Üretim Zamanı: 19 Şub 2022, 18:09:53
 -- Sunucu sürümü: 10.4.21-MariaDB
 -- PHP Sürümü: 7.3.31
 
@@ -101,15 +101,18 @@ CREATE TABLE `geneltanim_tbl` (
   `iscilik_maaliyet` varchar(255) NOT NULL,
   `diger_maaliyet` varchar(255) NOT NULL,
   `tasarim_maaliyet` varchar(255) NOT NULL,
-  `baski_maaliyet` varchar(255) NOT NULL
+  `baski_maaliyet` varchar(255) NOT NULL,
+  `doviz_turu` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Tablo döküm verisi `geneltanim_tbl`
 --
 
-INSERT INTO `geneltanim_tbl` (`id`, `iscilik_maaliyet`, `diger_maaliyet`, `tasarim_maaliyet`, `baski_maaliyet`) VALUES
-(0, '11', '1', '1', '11');
+INSERT INTO `geneltanim_tbl` (`id`, `iscilik_maaliyet`, `diger_maaliyet`, `tasarim_maaliyet`, `baski_maaliyet`, `doviz_turu`) VALUES
+(1, '11000', '10000', '7500', '4000', 'USD'),
+(4, '250', '250', '250', '250', 'EUR'),
+(5, '11000', '250', '7500', '4000', 'TRY');
 
 -- --------------------------------------------------------
 
@@ -286,6 +289,12 @@ ALTER TABLE `doviz_tbl`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `geneltanim_tbl`
+--
+ALTER TABLE `geneltanim_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `kullanici_tbl`
 --
 ALTER TABLE `kullanici_tbl`
@@ -342,6 +351,12 @@ ALTER TABLE `cariekrani_tbl`
 --
 ALTER TABLE `doviz_tbl`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `geneltanim_tbl`
+--
+ALTER TABLE `geneltanim_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `kullanici_tbl`
