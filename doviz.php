@@ -1,27 +1,28 @@
 <?php
 include 'baglan.php';
 
-$connect_web = simplexml_load_file('http://www.tcmb.gov.tr/kurlar/today.xml');
+$connect_dolar = "https://kur.doviz.com/serbest-piyasa/amerikan-dolari";
+$connect_euro = "https://kur.doviz.com/serbest-piyasa/euro";
+$datadolar = file_get_contents($connect_dolar);
+$dataeuro = file_get_contents($connect_euro);
 
-$usd_buying = $connect_web->Currency[0]->BanknoteBuying;
-$usd_selling = $connect_web->Currency[0]->BanknoteSelling;
+preg_match_all('@<div data-socket-key="USD" data-socket-type="C" data-socket-attr="s" class="text-xl font-semibold text-white">(.*?)</div>@si', $datadolar, $baslikdolar);
+preg_match_all('@<div data-socket-key="EUR" data-socket-type="C" data-socket-attr="s" class="text-xl font-semibold text-white">(.*?)</div>@si', $dataeuro, $baslikeuro);
+$dolarvirgulllu=implode("", $baslikdolar[1]);
+$eurovirgullu=implode("", $baslikeuro[1]);
 
-$euro_buying = $connect_web->Currency[3]->BanknoteBuying;
-$euro_selling = $connect_web->Currency[3]->BanknoteSelling;
+$dolar = str_replace(",",".",$dolarvirgulllu);
+$euro = str_replace(",",".",$eurovirgullu);
 
 //veritabanında döviz kurlarını güncelleme
 $dovizguncelle=$db->prepare("UPDATE doviz_tbl SET
-  dolar_alis=:dolaralis,
   dolar_satis=:dolarsatis,
-  euro_alis=:euroalis,
   euro_satis=:eurosatis
   WHERE id=1
   ");
   $update=$dovizguncelle->execute(array(
-    'dolaralis' => $usd_buying,
-    'dolarsatis' => $usd_selling,
-    'euroalis' => $euro_buying,
-    'eurosatis' => $euro_selling
+    'dolarsatis' => $dolar,
+    'eurosatis' => $euro
   ));
 
   $id=1;

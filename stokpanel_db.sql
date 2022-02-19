@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 19 Şub 2022, 12:08:14
+-- Üretim Zamanı: 19 Şub 2022, 13:01:46
 -- Sunucu sürümü: 10.4.21-MariaDB
 -- PHP Sürümü: 7.3.31
 
@@ -79,9 +79,7 @@ INSERT INTO `cariekrani_tbl` (`id`, `firma_ad`, `vergi_no`, `vergi_dairesi`, `ad
 
 CREATE TABLE `doviz_tbl` (
   `id` int(11) NOT NULL,
-  `dolar_alis` double NOT NULL,
   `dolar_satis` double NOT NULL,
-  `euro_alis` double NOT NULL,
   `euro_satis` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -89,8 +87,8 @@ CREATE TABLE `doviz_tbl` (
 -- Tablo döküm verisi `doviz_tbl`
 --
 
-INSERT INTO `doviz_tbl` (`id`, `dolar_alis`, `dolar_satis`, `euro_alis`, `euro_satis`) VALUES
-(1, 13.6022, 13.6567, 15.4637, 15.5257);
+INSERT INTO `doviz_tbl` (`id`, `dolar_satis`, `euro_satis`) VALUES
+(1, 13.6511, 15.4798);
 
 -- --------------------------------------------------------
 

@@ -45,10 +45,8 @@ $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
         <li class="mt-5">
           <h4 class="text-white text-center">Döviz Kurları</h4>
           <nav class="nav text-white fw-bold m-4">
-            <p class="text-success">$ Alış: <?=$dovizcek['dolar_alis']?> ₺</p>
-            <p class="text-danger">$ Satış: <?=$dovizcek['dolar_satis']?> ₺</p>
-            <p class="text-success">€ Alış: <?=$dovizcek['euro_alis']?> ₺</p>
-            <p class="text-danger">€ Satış: <?=$dovizcek['euro_satis']?> ₺</p>
+            <p>$ Satış: <?=$dovizcek['dolar_satis']?> ₺</p>
+            <p>€ Satış: <?=$dovizcek['euro_satis']?> ₺</p>
           </nav>
         </li>
       </ul>
