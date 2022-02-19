@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 18 Şub 2022, 11:33:47
+-- Üretim Zamanı: 19 Şub 2022, 12:08:14
 -- Sunucu sürümü: 10.4.21-MariaDB
 -- PHP Sürümü: 7.3.31
 
@@ -70,6 +70,27 @@ CREATE TABLE `cariekrani_tbl` (
 
 INSERT INTO `cariekrani_tbl` (`id`, `firma_ad`, `vergi_no`, `vergi_dairesi`, `adres`, `yetkili_kisi`, `irtibat_kisisi`) VALUES
 (2, 'Deneme', '13213213123', 'Eskişehir', 'Odunpazarı Eskişehir', 'Barış Ömer Döngel', 'Serdar Öz');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `doviz_tbl`
+--
+
+CREATE TABLE `doviz_tbl` (
+  `id` int(11) NOT NULL,
+  `dolar_alis` double NOT NULL,
+  `dolar_satis` double NOT NULL,
+  `euro_alis` double NOT NULL,
+  `euro_satis` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Tablo döküm verisi `doviz_tbl`
+--
+
+INSERT INTO `doviz_tbl` (`id`, `dolar_alis`, `dolar_satis`, `euro_alis`, `euro_satis`) VALUES
+(1, 13.6022, 13.6567, 15.4637, 15.5257);
 
 -- --------------------------------------------------------
 
@@ -261,6 +282,12 @@ ALTER TABLE `cariekrani_tbl`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `doviz_tbl`
+--
+ALTER TABLE `doviz_tbl`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Tablo için indeksler `kullanici_tbl`
 --
 ALTER TABLE `kullanici_tbl`
@@ -311,6 +338,12 @@ ALTER TABLE `alisekrani_tbl`
 --
 ALTER TABLE `cariekrani_tbl`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `doviz_tbl`
+--
+ALTER TABLE `doviz_tbl`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `kullanici_tbl`

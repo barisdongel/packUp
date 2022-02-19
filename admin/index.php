@@ -16,8 +16,7 @@ $calisansor->execute();
 <!-- Main Content -->
 <div class="main-content">
 
-<?php include 'istatistikler.php'; ?>
+  <?php include 'istatistikler.php'; ?>
 
-</div>
 </div>
 <?php include 'footer.php' ?>

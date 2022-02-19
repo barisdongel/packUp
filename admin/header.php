@@ -1,6 +1,7 @@
 <?php
 include '../baglan.php';
 include '../function.php';
+include '../doviz.php';
 
 $kullanicisor =$db->prepare("SELECT * FROM kullanici_tbl WHERE kullanici_ad=:ad");
 $kullanicisor->execute(array(
@@ -9,10 +10,12 @@ $kullanicisor->execute(array(
 $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
 
 if (!isset($_SESSION['kullanici_ad'])) {
-
   header('location:login.php');
-
 }
+//döviz kurlarını veritabanından çeker
+$dovizsor=$db->prepare("SELECT * FROM doviz_tbl WHERE id=1");
+$dovizsor->execute(array(0));
+$dovizcek=$dovizsor->fetch(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
